@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // ch
+    "module": "commonjs",
+    "outDir": "js",
+    "watch": true,
+    "removeComments": true
+  }
+}

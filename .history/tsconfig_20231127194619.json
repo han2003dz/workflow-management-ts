@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // cho phep
+    "module": "commonjs",
+    "outDir": "js",
+    "watch": true,
+    "removeComments": true
+  }
+}

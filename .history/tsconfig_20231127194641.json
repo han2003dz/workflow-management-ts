@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // cho phép biên dịch code TypeScript sang kiểu es6
+    "module": "commonjs", // com
+    "outDir": "js",
+    "watch": true,
+    "removeComments": true
+  }
+}
