@@ -17,15 +17,8 @@ export const index = async (req: Request, res: Response) => {
   }
   // end bộ lọc theo trạng thái
 
-  const countTasks = await Task.countDocuments(find); // đếm xem bao nhiêu bản ghi
-  let objectPagination = paginationHelper(
-    {
-      currentPage: 1,
-      limitItems: 2,
-    },
-    req.query,
-    countTasks
-  );
+  const countTasks = await Task.countDocuments()
+
 
   // sort
   const sort = {};
@@ -35,15 +28,9 @@ export const index = async (req: Request, res: Response) => {
   }
   // end sort
 
-  const tasks = await Task.find(find)
-    .sort(sort)
-    .limit(objectPagination.limitItems)
-    .skip(objectPagination.skip);
+  const tasks = await Task.find(find).sort(sort);
 
-  res.json({
-    total: countTasks,
-    tasks: tasks,
-  });
+  res.json(tasks);
 };
 
 export const detail = async (req: Request, res: Response) => {

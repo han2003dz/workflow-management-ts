@@ -40,10 +40,7 @@ export const index = async (req: Request, res: Response) => {
     .limit(objectPagination.limitItems)
     .skip(objectPagination.skip);
 
-  res.json({
-    total: countTasks,
-    tasks: tasks,
-  });
+  res.json(tasks);
 };
 
 export const detail = async (req: Request, res: Response) => {

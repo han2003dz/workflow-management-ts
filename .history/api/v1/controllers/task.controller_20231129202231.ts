@@ -41,8 +41,7 @@ export const index = async (req: Request, res: Response) => {
     .skip(objectPagination.skip);
 
   res.json({
-    total: countTasks,
-    tasks: tasks,
+    total: 
   });
 };
 

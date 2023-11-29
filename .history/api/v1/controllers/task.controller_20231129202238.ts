@@ -42,7 +42,7 @@ export const index = async (req: Request, res: Response) => {
 
   res.json({
     total: countTasks,
-    tasks: tasks,
+    
   });
 };
 

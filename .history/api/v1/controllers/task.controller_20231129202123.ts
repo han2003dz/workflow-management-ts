@@ -35,15 +35,9 @@ export const index = async (req: Request, res: Response) => {
   }
   // end sort
 
-  const tasks = await Task.find(find)
-    .sort(sort)
-    .limit(objectPagination.limitItems)
-    .skip(objectPagination.skip);
+  const tasks = await Task.find(find).sort(sort).limit(p);
 
-  res.json({
-    total: countTasks,
-    tasks: tasks,
-  });
+  res.json(tasks);
 };
 
 export const detail = async (req: Request, res: Response) => {
