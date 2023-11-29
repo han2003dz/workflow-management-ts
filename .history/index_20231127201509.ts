@@ -1,15 +1,12 @@
 import express, { Express, Request, Response } from "express";
-import dotenv from "dotenv";
 import * as database from "./config/database";
-import v1Routes from "./api/v1/routes/index.route";
+import dotenv from "dotenv";
 
 dotenv.config();
 database.connect();
 
 const app: Express = express();
-
 const port: number | string = process.env.PORT || 3000;
-
 app.get("/tasks", (req: Request, res: Response) => {
   res.send("Danh sách công việc");
 });
