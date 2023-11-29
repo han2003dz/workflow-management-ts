@@ -21,11 +21,10 @@ export const index = async (req: Request, res: Response) => {
   const sort = {};
   if (req.query.sortKey && req.query.sortValue) {
     const sortKey = req.query.sortKey.toString();
-    sort[sortKey] = req.query.sortValue;
   }
   // end sort
 
-  const tasks = await Task.find(find).sort(sort);
+  const tasks = await Task.find(find);
 
   res.json(tasks);
 };

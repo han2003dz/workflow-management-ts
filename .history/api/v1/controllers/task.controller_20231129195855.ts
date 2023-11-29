@@ -25,7 +25,7 @@ export const index = async (req: Request, res: Response) => {
   }
   // end sort
 
-  const tasks = await Task.find(find).sort(sort);
+  const tasks = await Task.find(find);
 
   res.json(tasks);
 };
