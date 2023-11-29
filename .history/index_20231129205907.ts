@@ -15,13 +15,6 @@ const port: number | string = process.env.PORT || 3000;
 // parse application/json
 app.use(bodyParser.json());
 
-// const corsOptions = {
-//   origin: 'http://example.com'
-// };
-// app.use(cors(corsOptions));
-
-app.use(cors());
-
 v1Routes(app);
 
 app.listen(port, () => {

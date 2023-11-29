@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 // const corsOptions = {
 //   origin: 'http://example.com'
 // };
+
 // app.use(cors(corsOptions));
 
 app.use(cors());
