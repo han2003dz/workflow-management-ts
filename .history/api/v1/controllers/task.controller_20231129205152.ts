@@ -128,7 +128,7 @@ export const changeMulti = async (req: Request, res: Response) => {
 };
 
 // [POST] /api/v1/create
-export const create = async (req: Request, res: Response) => {
+export const create = async (req: Request, res: Request) => {
   try {
     const task = new Task(req.body);
     const data = await task.save();
