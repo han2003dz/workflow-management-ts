@@ -95,13 +95,13 @@ export const changeMulti = async (req: Request, res: Response) => {
       STATUS = "status",
       DELETE = "delete",
     }
-
+    
     const ids: string[] = req.body.ids;
     const key: string = req.body.key;
     const value: string = req.body.value;
 
     switch (key) {
-      case Key.STATUS:
+      case "status":
         await Task.updateMany(
           {
             _id: { $in: ids },
@@ -114,22 +114,6 @@ export const changeMulti = async (req: Request, res: Response) => {
         res.json({
           code: 200,
           message: "Cập nhật trạng thái thành công!",
-        });
-        break;
-      case Key.DELETE:
-        await Task.updateMany(
-          {
-            _id: { $in: ids },
-          },
-          {
-            deleted: true,
-            deletedAt: new Date(),
-          }
-        );
-
-        res.json({
-          code: 200,
-          message: "Xóa thành công!",
         });
         break;
 
