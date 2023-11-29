@@ -31,9 +31,8 @@ export const index = async (req: Request, res: Response) => {
 
   // Search
   const objectSearch = searchHelper(req.query);
-  if (objectSearch.regex) {
-    find.title = objectSearch.regex;
-  }
+  if(ob)
+
   // end Search
 
   // sort

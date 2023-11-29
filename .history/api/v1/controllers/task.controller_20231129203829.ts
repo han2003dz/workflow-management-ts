@@ -7,7 +7,6 @@ export const index = async (req: Request, res: Response) => {
   interface Find {
     deleted: boolean;
     status?: string;
-    title?: RegExp;
   }
 
   const find: Find = {
@@ -28,13 +27,6 @@ export const index = async (req: Request, res: Response) => {
     req.query,
     countTasks
   );
-
-  // Search
-  const objectSearch = searchHelper(req.query);
-  if (objectSearch.regex) {
-    find.title = objectSearch.regex;
-  }
-  // end Search
 
   // sort
   const sort = {};

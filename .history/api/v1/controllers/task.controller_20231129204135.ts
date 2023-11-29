@@ -34,6 +34,7 @@ export const index = async (req: Request, res: Response) => {
   if (objectSearch.regex) {
     find.title = objectSearch.regex;
   }
+
   // end Search
 
   // sort

@@ -29,13 +29,6 @@ export const index = async (req: Request, res: Response) => {
     countTasks
   );
 
-  // Search
-  const objectSearch = searchHelper(req.query);
-  if (objectSearch.regex) {
-    find.title = objectSearch.regex;
-  }
-  // end Search
-
   // sort
   const sort = {};
   if (req.query.sortKey && req.query.sortValue) {

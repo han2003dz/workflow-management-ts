@@ -30,10 +30,8 @@ export const index = async (req: Request, res: Response) => {
   );
 
   // Search
-  const objectSearch = searchHelper(req.query);
-  if (objectSearch.regex) {
-    find.title = objectSearch.regex;
-  }
+  const objectSearch = searchHelper(req.querys)
+
   // end Search
 
   // sort

@@ -29,11 +29,7 @@ export const index = async (req: Request, res: Response) => {
     countTasks
   );
 
-  // Search
-  const objectSearch = searchHelper(req.query);
-  if (objectSearch.regex) {
-    find.title = objectSearch.regex;
-  }
+  //Search
   // end Search
 
   // sort
