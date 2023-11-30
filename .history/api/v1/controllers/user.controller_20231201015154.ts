@@ -55,34 +55,7 @@ export const login = async (req: Request, res: Response) => {
     return;
   }
 
-  if (md5(password) !== user.password) {
-    res.status(400).json({
-      code: 400,
-      message: "Sai mật khẩu, vui lòng nhập lại!",
-    });
+  if(md5(password) !== user.password){
+    
   }
-
-  const token = user.token;
-
-  res.json({
-    code: 200,
-    message: "Đăng nhập thành công!",
-    token: token,
-  });
-};
-
-// [POST] /api/v1/users/detail/:id
-export const detail = async (req: Request, res: Response) => {
-  const id: string = req.params.id;
-
-  const user = await User.findOne({
-    _id: id,
-    deleted: false,
-  }).select("-password -token");
-
-  res.json({
-    code: 200,
-    message: "Thành công!",
-    info: user,
-  });
 };

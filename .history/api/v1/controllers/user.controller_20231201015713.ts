@@ -82,7 +82,6 @@ export const detail = async (req: Request, res: Response) => {
 
   res.json({
     code: 200,
-    message: "Thành công!",
-    info: user,
-  });
+    message: 
+  })
 };

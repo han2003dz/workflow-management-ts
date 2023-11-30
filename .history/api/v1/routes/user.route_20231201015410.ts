@@ -5,8 +5,5 @@ const router: Router = Router();
 
 router.post("/register", controller.register);
 
-router.post("/login", controller.login);
-
-router.post("/detail/:id", controller.detail);
-
+router.post("/register", controller.register);
 export const userRoutes: Router = router;
