@@ -73,6 +73,7 @@ export const login = async (req: Request, res: Response) => {
 
 // [POST] /api/v1/users/detail/:id
 export const detail = async (req: Request, res: Response) => {
+
   res.json({
     code: 200,
     message: "Thành công!",
