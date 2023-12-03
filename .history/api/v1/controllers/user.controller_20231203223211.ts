@@ -68,7 +68,7 @@ export const login = async (req: Request, res: Response) => {
   });
 };
 
-// [POST] /api/v1/users/detail
+// [POST] /api/v1/users/detail/
 export const detail = async (req: Request, res: Response) => {
   res.json({
     code: 200,
