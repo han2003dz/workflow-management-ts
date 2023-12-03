@@ -6,6 +6,6 @@
     "removeComments": true, //Option removeComments để remove comments khi biên dịch sáng file js
     "esModuleInterop": true, // dùng được từ khóa import
 
-    "outDir": "dist" // biên dịch sang file js
+    "outDir": "dist" // biên dịch 
   }
 }
