@@ -52,20 +52,9 @@ export const login = async (req: Request, res: Response) => {
       message: "Email không tồn tại!",
     });
   }
-  if (md5(password) !== user.password) {
-    res.json({
-      code: 400,
-      message: "Mật khẩu không đúng!",
-    });
+  if(md5(password) !== user.password){
+    res
   }
-
-  const token = user.token;
-
-  res.json({
-    code: 200,
-    message: "Đăng nhập thành công!",
-    token: token,
-  });
 };
 
 // [POST] /api/v1/users/detail/:id

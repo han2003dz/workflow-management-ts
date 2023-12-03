@@ -10,7 +10,7 @@ export const register = async (req: Request, res: Response) => {
     deleted: false,
   });
 
-  if (!emailExist) {
+  if (emailExist) {
     res.json({
       code: 400,
       message: "Email đã tồn tại!",
@@ -38,34 +38,27 @@ export const register = async (req: Request, res: Response) => {
 
 // [POST] /api/v1/users/login
 export const login = async (req: Request, res: Response) => {
-  const email: string = req.body.email;
-  const password: string = req.body.password;
-
-  const user = await User.findOne({
-    email: email,
+  const emailExist = await User.findOne({
+    email: req.body.email,
     deleted: false,
   });
 
-  if (!user) {
+  if (emailExist) {
     res.json({
       code: 400,
-      message: "Email không tồn tại!",
+      message: "Email đã tồn tại!",
     });
-  }
-  if (md5(password) !== user.password) {
-    res.json({
-      code: 400,
-      message: "Mật khẩu không đúng!",
-    });
-  }
+  } else {
+    const newUser = {
+      fullName: req.body.fullName,
+      email: req.body.email,
+      password: md5(req.body.password),
+      token: generateRandomString(30),
+    };
 
-  const token = user.token;
-
-  res.json({
-    code: 200,
-    message: "Đăng nhập thành công!",
-    token: token,
-  });
+    const user = new User(newUser);
+    
+  }
 };
 
 // [POST] /api/v1/users/detail/:id

@@ -10,7 +10,7 @@ export const register = async (req: Request, res: Response) => {
     deleted: false,
   });
 
-  if (!emailExist) {
+  if (emailExist) {
     res.json({
       code: 400,
       message: "Email đã tồn tại!",
@@ -43,19 +43,21 @@ export const login = async (req: Request, res: Response) => {
 
   const user = await User.findOne({
     email: email,
-    deleted: false,
+    password: password,
   });
 
   if (!user) {
-    res.json({
+    res.status(400).json({
       code: 400,
       message: "Email không tồn tại!",
     });
+    return;
   }
+
   if (md5(password) !== user.password) {
-    res.json({
+    res.status(400).json({
       code: 400,
-      message: "Mật khẩu không đúng!",
+      message: "Sai mật khẩu, vui lòng nhập lại!",
     });
   }
 

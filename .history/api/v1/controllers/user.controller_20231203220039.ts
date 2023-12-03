@@ -41,31 +41,7 @@ export const login = async (req: Request, res: Response) => {
   const email: string = req.body.email;
   const password: string = req.body.password;
 
-  const user = await User.findOne({
-    email: email,
-    deleted: false,
-  });
-
-  if (!user) {
-    res.json({
-      code: 400,
-      message: "Email không tồn tại!",
-    });
-  }
-  if (md5(password) !== user.password) {
-    res.json({
-      code: 400,
-      message: "Mật khẩu không đúng!",
-    });
-  }
-
-  const token = user.token;
-
-  res.json({
-    code: 200,
-    message: "Đăng nhập thành công!",
-    token: token,
-  });
+  const user = await User.find
 };
 
 // [POST] /api/v1/users/detail/:id

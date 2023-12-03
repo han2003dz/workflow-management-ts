@@ -59,13 +59,7 @@ export const login = async (req: Request, res: Response) => {
     });
   }
 
-  const token = user.token;
-
-  res.json({
-    code: 200,
-    message: "Đăng nhập thành công!",
-    token: token,
-  });
+  
 };
 
 // [POST] /api/v1/users/detail/:id
